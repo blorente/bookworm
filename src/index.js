@@ -1,12 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import Bookworm from './Boookworm';
 import reportWebVitals from './reportWebVitals';
+import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
+
+
+const auth = process.env.REACT_APP_GH_GRAPHQL_API_TOKEN;
+console.log(auth);
+
+const client = new ApolloClient({
+  uri: 'https://api.github.com/graphql',
+  cache: new InMemoryCache(),
+  headers: {
+      "Authorization": `Bearer ${auth}`
+  }
+});
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <ApolloProvider client={client}>
+      <Bookworm />
+      </ApolloProvider>
   </React.StrictMode>,
   document.getElementById('root')
 );
