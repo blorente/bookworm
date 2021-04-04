@@ -7,7 +7,6 @@ import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
 
 
 const auth = process.env.REACT_APP_GH_GRAPHQL_API_TOKEN;
-console.log(auth);
 
 const client = new ApolloClient({
   uri: 'https://api.github.com/graphql',

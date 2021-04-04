@@ -1,6 +1,7 @@
 
 import Navbar from "./Navbar";
 import Editor from "./Editor";
+import TopBar from "./TopBar";
 import { gql, useQuery } from "@apollo/client";
 
 const repo = "decorat";
@@ -24,15 +25,15 @@ function Bookworm() {
   const {loading, error, data} = useQuery(GET_FILE_QUERY)
   
   if (loading) return <p>Loading...</p>;
-  if (error) return <p>Error :({error.message})</p>;
+  if (error) {console.log(error); return <p>Error :({error.message})</p>};
   console.log(data);
   return (
-    (<div>{/* <Navbar /> */}</div>),
-    (
-      <div>
-        <Editor contents={data.repository.object.text} />
+      <div class="bookworm" >
+    <Navbar />  
+    <Editor  contents={data.repository.object.text} />
+    <TopBar  contents={data.repository.object.text} />
+
       </div>
-    )
   );
 }
 

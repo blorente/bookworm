@@ -2,8 +2,8 @@ import React from "react";
 
 function Navbar() {
   return (
-    <nav class="navbar">
-      <ul class="navbar-nav">
+    <nav class="nav" >
+      <ul >
         <li>Hello</li>
       </ul>
     </nav>

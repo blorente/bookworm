@@ -1,3 +1,20 @@
+:root {
+  --monokai-dark: #242424;
+  --monokai-light: #F9F5DD;
+  --monokai-red: #FF5794;
+  --monokai-green: #B2E64C;
+  --monokai-cyan: #66CCE1;
+  --monokai-brown: #CC8D66;
+  --monokai-orange: #FAA23D;
+  --monokai-blue: #5596F1;
+  --monokai-purple: #AA7DFC;
+  --monokai-yellow: #E6DB7A;
+
+  --bg-color: var(--monokai-dark);
+  --text-color: var(--monokai-yellow);
+  --text-size: 40px;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -5,10 +22,35 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  font-size: var(--text-size);
+  overflow: hidden;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.bookworm {
+  display: grid;
+  grid-template-columns: 10vw 79vw 10vw;
+  grid-template-rows: 10vh 89vh;
+  grid-template-areas: 
+  "nav top blank"
+  "nav editor blank";
 }
 
+.editor {
+  grid-area: editor;
+  background-color: var(--monokai-red);
+  height: 100%;
+}
+.CodeMirror * {
+  font-size: var(--text-size);
+  overflow-x: hidden;
+}
+
+.nav {
+  grid-area: nav;
+}
+
+.top {
+  grid-area: top;
+}

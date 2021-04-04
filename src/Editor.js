@@ -5,15 +5,17 @@ import 'codemirror/theme/monokai.css';
 
 function Editor(props) {
     return (
-        <div>
-            <CodeMirror
-               value={props.contents}
-               options={{
-                   theme: 'monokai',
-                   keyMap: 'vim',
-                   mode: 'jsx',
-               }}
-            />
+        <div class="editor">
+        <CodeMirror
+            value={props.contents}
+            options={{
+                theme: 'monokai',
+                keyMap: 'vim',
+                mode: 'text',
+                lineNumbers: false,
+                lineWrapping: true,
+            }}
+        />
         </div>
     )
 }
